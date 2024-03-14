@@ -43,7 +43,12 @@
             <groupId>javax.annotation</groupId>
             <artifactId>javax.annotation-api</artifactId>
             <version>1.2</version>
-        </dependency>      
+    </dependency>   
+	    <dependency>
+  <groupId>io.grpc</groupId>
+  <artifactId>grpc-core</artifactId>
+  <version>1.47.0</version>
+</dependency>
     </dependencies>
 
     <build>
@@ -92,7 +97,20 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
-            </plugin>
+	</plugin>
+
+		<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-jar-plugin</artifactId>
+  <version>3.2.0</version>
+  <configuration>
+    <archive>
+      <manifest>
+        <mainClass>com.crossnetcorp.chat.llmserver.MainApp</mainClass>
+      </manifest>
+    </archive>
+  </configuration>
+</plugin>
         </plugins>
     </build>
 

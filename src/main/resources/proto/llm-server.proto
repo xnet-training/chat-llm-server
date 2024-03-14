@@ -1,4 +1,4 @@
-syntax = "proto3" /* default es version 2 */
+syntax = "proto3"; /* default es version 2 */
 
 option java_package = "com.crossnetcorp.chat.llmserver";
 

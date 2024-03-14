@@ -1,0 +1,16 @@
+syntax = "proto3" /* default es version 2 */
+
+option java_package = "com.crossnetcorp.chat.llmserver";
+
+service LLMChatService {
+  rpc ping (PingRequest) returns (PingResponse) {}
+}
+
+message PingRequest {
+  //type name = id
+  string name = 1; // El valor del id debe ser mayor que 0 e igual en cliente y servidor 
+}
+
+message PingResponse {
+  string response = 1;
+}

@@ -3,7 +3,10 @@ syntax = "proto3"; /* default es version 2 */
 option java_package = "com.crossnetcorp.chat.llmserver";
 
 service LLMChatService {
+  // Consultar por la disponibilidad del servicio
   rpc ping (PingRequest) returns (PingResponse) {}
+  // Responder a pregunta usando LLM
+  rpc answer (QuestionRequest) returns (QuestionResponse) {}
 }
 
 message PingRequest {
@@ -13,4 +16,13 @@ message PingRequest {
 
 message PingResponse {
   string response = 1;
+}
+
+message QuestionRequest {
+  string role = 1;     // Cual es  mi role en la consulta
+  string question = 2; // Pregunta a responder
+}
+
+message QuestionResponse {
+  string response = 1; // Respuesta LLM
 }

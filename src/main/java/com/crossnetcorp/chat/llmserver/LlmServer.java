@@ -1150,6 +1150,1351 @@ public final class LlmServer {
 
   }
 
+  public interface QuestionRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:QuestionRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Cual es  mi role en la consulta
+     * </pre>
+     *
+     * <code>string role = 1;</code>
+     */
+    java.lang.String getRole();
+    /**
+     * <pre>
+     * Cual es  mi role en la consulta
+     * </pre>
+     *
+     * <code>string role = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getRoleBytes();
+
+    /**
+     * <pre>
+     * Pregunta a responder
+     * </pre>
+     *
+     * <code>string question = 2;</code>
+     */
+    java.lang.String getQuestion();
+    /**
+     * <pre>
+     * Pregunta a responder
+     * </pre>
+     *
+     * <code>string question = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getQuestionBytes();
+  }
+  /**
+   * Protobuf type {@code QuestionRequest}
+   */
+  public  static final class QuestionRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:QuestionRequest)
+      QuestionRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use QuestionRequest.newBuilder() to construct.
+    private QuestionRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private QuestionRequest() {
+      role_ = "";
+      question_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private QuestionRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              role_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              question_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.crossnetcorp.chat.llmserver.LlmServer.internal_static_QuestionRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.crossnetcorp.chat.llmserver.LlmServer.internal_static_QuestionRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest.class, com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest.Builder.class);
+    }
+
+    public static final int ROLE_FIELD_NUMBER = 1;
+    private volatile java.lang.Object role_;
+    /**
+     * <pre>
+     * Cual es  mi role en la consulta
+     * </pre>
+     *
+     * <code>string role = 1;</code>
+     */
+    public java.lang.String getRole() {
+      java.lang.Object ref = role_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        role_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Cual es  mi role en la consulta
+     * </pre>
+     *
+     * <code>string role = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRoleBytes() {
+      java.lang.Object ref = role_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        role_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int QUESTION_FIELD_NUMBER = 2;
+    private volatile java.lang.Object question_;
+    /**
+     * <pre>
+     * Pregunta a responder
+     * </pre>
+     *
+     * <code>string question = 2;</code>
+     */
+    public java.lang.String getQuestion() {
+      java.lang.Object ref = question_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        question_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Pregunta a responder
+     * </pre>
+     *
+     * <code>string question = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getQuestionBytes() {
+      java.lang.Object ref = question_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        question_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getRoleBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, role_);
+      }
+      if (!getQuestionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, question_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getRoleBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, role_);
+      }
+      if (!getQuestionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, question_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest)) {
+        return super.equals(obj);
+      }
+      com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest other = (com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest) obj;
+
+      boolean result = true;
+      result = result && getRole()
+          .equals(other.getRole());
+      result = result && getQuestion()
+          .equals(other.getQuestion());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ROLE_FIELD_NUMBER;
+      hash = (53 * hash) + getRole().hashCode();
+      hash = (37 * hash) + QUESTION_FIELD_NUMBER;
+      hash = (53 * hash) + getQuestion().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code QuestionRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:QuestionRequest)
+        com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.crossnetcorp.chat.llmserver.LlmServer.internal_static_QuestionRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.crossnetcorp.chat.llmserver.LlmServer.internal_static_QuestionRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest.class, com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest.Builder.class);
+      }
+
+      // Construct using com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        role_ = "";
+
+        question_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.crossnetcorp.chat.llmserver.LlmServer.internal_static_QuestionRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest getDefaultInstanceForType() {
+        return com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest build() {
+        com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest buildPartial() {
+        com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest result = new com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest(this);
+        result.role_ = role_;
+        result.question_ = question_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest) {
+          return mergeFrom((com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest other) {
+        if (other == com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest.getDefaultInstance()) return this;
+        if (!other.getRole().isEmpty()) {
+          role_ = other.role_;
+          onChanged();
+        }
+        if (!other.getQuestion().isEmpty()) {
+          question_ = other.question_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object role_ = "";
+      /**
+       * <pre>
+       * Cual es  mi role en la consulta
+       * </pre>
+       *
+       * <code>string role = 1;</code>
+       */
+      public java.lang.String getRole() {
+        java.lang.Object ref = role_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          role_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Cual es  mi role en la consulta
+       * </pre>
+       *
+       * <code>string role = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRoleBytes() {
+        java.lang.Object ref = role_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          role_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Cual es  mi role en la consulta
+       * </pre>
+       *
+       * <code>string role = 1;</code>
+       */
+      public Builder setRole(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        role_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Cual es  mi role en la consulta
+       * </pre>
+       *
+       * <code>string role = 1;</code>
+       */
+      public Builder clearRole() {
+        
+        role_ = getDefaultInstance().getRole();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Cual es  mi role en la consulta
+       * </pre>
+       *
+       * <code>string role = 1;</code>
+       */
+      public Builder setRoleBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        role_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object question_ = "";
+      /**
+       * <pre>
+       * Pregunta a responder
+       * </pre>
+       *
+       * <code>string question = 2;</code>
+       */
+      public java.lang.String getQuestion() {
+        java.lang.Object ref = question_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          question_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Pregunta a responder
+       * </pre>
+       *
+       * <code>string question = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getQuestionBytes() {
+        java.lang.Object ref = question_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          question_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Pregunta a responder
+       * </pre>
+       *
+       * <code>string question = 2;</code>
+       */
+      public Builder setQuestion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        question_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Pregunta a responder
+       * </pre>
+       *
+       * <code>string question = 2;</code>
+       */
+      public Builder clearQuestion() {
+        
+        question_ = getDefaultInstance().getQuestion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Pregunta a responder
+       * </pre>
+       *
+       * <code>string question = 2;</code>
+       */
+      public Builder setQuestionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        question_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:QuestionRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:QuestionRequest)
+    private static final com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest();
+    }
+
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<QuestionRequest>
+        PARSER = new com.google.protobuf.AbstractParser<QuestionRequest>() {
+      @java.lang.Override
+      public QuestionRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new QuestionRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<QuestionRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<QuestionRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface QuestionResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:QuestionResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Respuesta LLM
+     * </pre>
+     *
+     * <code>string response = 1;</code>
+     */
+    java.lang.String getResponse();
+    /**
+     * <pre>
+     * Respuesta LLM
+     * </pre>
+     *
+     * <code>string response = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getResponseBytes();
+  }
+  /**
+   * Protobuf type {@code QuestionResponse}
+   */
+  public  static final class QuestionResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:QuestionResponse)
+      QuestionResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use QuestionResponse.newBuilder() to construct.
+    private QuestionResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private QuestionResponse() {
+      response_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private QuestionResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              response_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.crossnetcorp.chat.llmserver.LlmServer.internal_static_QuestionResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.crossnetcorp.chat.llmserver.LlmServer.internal_static_QuestionResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse.class, com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse.Builder.class);
+    }
+
+    public static final int RESPONSE_FIELD_NUMBER = 1;
+    private volatile java.lang.Object response_;
+    /**
+     * <pre>
+     * Respuesta LLM
+     * </pre>
+     *
+     * <code>string response = 1;</code>
+     */
+    public java.lang.String getResponse() {
+      java.lang.Object ref = response_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        response_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Respuesta LLM
+     * </pre>
+     *
+     * <code>string response = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getResponseBytes() {
+      java.lang.Object ref = response_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        response_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getResponseBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, response_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getResponseBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, response_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse)) {
+        return super.equals(obj);
+      }
+      com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse other = (com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse) obj;
+
+      boolean result = true;
+      result = result && getResponse()
+          .equals(other.getResponse());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + RESPONSE_FIELD_NUMBER;
+      hash = (53 * hash) + getResponse().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code QuestionResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:QuestionResponse)
+        com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.crossnetcorp.chat.llmserver.LlmServer.internal_static_QuestionResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.crossnetcorp.chat.llmserver.LlmServer.internal_static_QuestionResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse.class, com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse.Builder.class);
+      }
+
+      // Construct using com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        response_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.crossnetcorp.chat.llmserver.LlmServer.internal_static_QuestionResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse getDefaultInstanceForType() {
+        return com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse build() {
+        com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse buildPartial() {
+        com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse result = new com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse(this);
+        result.response_ = response_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse) {
+          return mergeFrom((com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse other) {
+        if (other == com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse.getDefaultInstance()) return this;
+        if (!other.getResponse().isEmpty()) {
+          response_ = other.response_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object response_ = "";
+      /**
+       * <pre>
+       * Respuesta LLM
+       * </pre>
+       *
+       * <code>string response = 1;</code>
+       */
+      public java.lang.String getResponse() {
+        java.lang.Object ref = response_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          response_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Respuesta LLM
+       * </pre>
+       *
+       * <code>string response = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getResponseBytes() {
+        java.lang.Object ref = response_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          response_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Respuesta LLM
+       * </pre>
+       *
+       * <code>string response = 1;</code>
+       */
+      public Builder setResponse(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        response_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Respuesta LLM
+       * </pre>
+       *
+       * <code>string response = 1;</code>
+       */
+      public Builder clearResponse() {
+        
+        response_ = getDefaultInstance().getResponse();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Respuesta LLM
+       * </pre>
+       *
+       * <code>string response = 1;</code>
+       */
+      public Builder setResponseBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        response_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:QuestionResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:QuestionResponse)
+    private static final com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse();
+    }
+
+    public static com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<QuestionResponse>
+        PARSER = new com.google.protobuf.AbstractParser<QuestionResponse>() {
+      @java.lang.Override
+      public QuestionResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new QuestionResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<QuestionResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<QuestionResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_PingRequest_descriptor;
   private static final 
@@ -1160,6 +2505,16 @@ public final class LlmServer {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_PingResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_QuestionRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_QuestionRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_QuestionResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_QuestionResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1171,9 +2526,12 @@ public final class LlmServer {
     java.lang.String[] descriptorData = {
       "\n\020llm-server.proto\"\033\n\013PingRequest\022\014\n\004nam" +
       "e\030\001 \001(\t\" \n\014PingResponse\022\020\n\010response\030\001 \001(" +
-      "\t27\n\016LLMChatService\022%\n\004ping\022\014.PingReques" +
-      "t\032\r.PingResponse\"\000B!\n\037com.crossnetcorp.c" +
-      "hat.llmserverb\006proto3"
+      "\t\"1\n\017QuestionRequest\022\014\n\004role\030\001 \001(\t\022\020\n\010qu" +
+      "estion\030\002 \001(\t\"$\n\020QuestionResponse\022\020\n\010resp" +
+      "onse\030\001 \001(\t2h\n\016LLMChatService\022%\n\004ping\022\014.P" +
+      "ingRequest\032\r.PingResponse\"\000\022/\n\006answer\022\020." +
+      "QuestionRequest\032\021.QuestionResponse\"\000B!\n\037" +
+      "com.crossnetcorp.chat.llmserverb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1198,6 +2556,18 @@ public final class LlmServer {
     internal_static_PingResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PingResponse_descriptor,
+        new java.lang.String[] { "Response", });
+    internal_static_QuestionRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_QuestionRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_QuestionRequest_descriptor,
+        new java.lang.String[] { "Role", "Question", });
+    internal_static_QuestionResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_QuestionResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_QuestionResponse_descriptor,
         new java.lang.String[] { "Response", });
   }
 

@@ -9,9 +9,8 @@ public class MainApp {
     public static void main(String[] args) {
         try {
             Server server = ServerBuilder.forPort(8999).addService(new LlmServerImpl()).build();
-
             server.start();
-            System.out.println("Server started at " + server.getPort());
+            System.out.println("CROSSNETCORP\n\ngRPC Server started at " + server.getPort());
             server.awaitTermination();
         } catch (IOException e) {
             System.out.println("Error: " + e);

@@ -8,6 +8,35 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>au.com.acegi</groupId>
+        <artifactId>xml-format-maven-plugin</artifactId>
+        <version>3.3.1</version>
+        <executions>
+          <execution>
+            <id>xml-format</id>
+            <goals>
+              <goal>xml-format</goal>
+            </goals>
+            <configuration>
+              <indentSize>2</indentSize>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>license-maven-plugin</artifactId>
+        <version>2.4.0</version>
+        <executions>
+          <execution>
+            <id>download-licenses</id>
+            <goals>
+              <goal>download-licenses</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <groupId>com.github.os72</groupId>
         <artifactId>protoc-jar-maven-plugin</artifactId>
         <version>3.6.0.1</version>
@@ -75,10 +104,28 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>net.revelc.code.formatter</groupId>
+        <artifactId>formatter-maven-plugin</artifactId>
+        <version>2.23.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>format</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <encoding>UTF-8</encoding>
+          <lineEnding>CRLF</lineEnding>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
   <properties>
+    <google-java-format.version>v1.21.0</google-java-format.version>
     <protobuf.version>3.6.1</protobuf.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <grpc.version>1.15.1</grpc.version>
   </properties>
 </project>

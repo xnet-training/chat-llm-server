@@ -4,7 +4,6 @@ import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import java.io.IOException;
 
-
 public class MainApp {
     public static void main(String[] args) {
         try {

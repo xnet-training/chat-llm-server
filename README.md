@@ -35,8 +35,26 @@ export PATH
 
 # Ejecutar Servidor gRPC
 
+## Ejecutar con Java (CLI)
+
 ```sh
 mvn clean package
 java -jar target/chat-server-1.0.0.jar
 ```
 
+## Ejecutar usando Docker
+
+Se debe generar la imagen del contenedor
+
+```sh
+docker buildx build . -t xnet/chat-llm-server:0.1.0
+```
+
+```sh
+docker run --rm \
+  --name chat-llm-server \
+  -p 8999:8999 \
+  xnet/chat-llm-server:0.1.0
+```
+
+> Autor: Ilver Anache <ianache@crossnetcorp.com>

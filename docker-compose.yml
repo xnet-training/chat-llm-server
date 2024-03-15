@@ -1,0 +1,7 @@
+version: "3.5"
+
+services:
+  chat-llm-server:
+    image:  xnet/chat-llm-server:${SERVER_VERSION:-0.1.0}
+    ports:
+    - "8999:8999"

@@ -122,10 +122,21 @@
       </plugin>
     </plugins>
   </build>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>io.grpc</groupId>
+        <artifactId>grpc-bom</artifactId>
+        <version>${grpc.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
   <properties>
     <google-java-format.version>v1.21.0</google-java-format.version>
     <protobuf.version>3.6.1</protobuf.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <grpc.version>1.15.1</grpc.version>
+    <grpc.version>1.40.1</grpc.version>
   </properties>
 </project>

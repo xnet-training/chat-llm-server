@@ -23,18 +23,17 @@ public class LLMServiceImpl implements LLMService {
     }
 
     static String PROMPT_TEMPLATE_ENGLISH = "As %s i need you to answer the following question to the best of your ability:\n"
-	    + "\n"
-	    + "Question:\n"
-	    + "%s\n"
-	    + "\n"
-	    + "Base your answer on the following information:\n"
-	    + "%s";
+            + "\n" + "Question:\n" + "%s\n" + "\n" + "Base your answer on the following information:\n" + "%s";
+
     @Override
     public String answer(String role, String context, String question) {
-        this.chatMemory
-                .add(userMessage(String.format(PROMPT_TEMPLATE_ENGLISH, role, context, question)));
+        String prompt = String.format(PROMPT_TEMPLATE_ENGLISH, role, question, context);
+        System.out.println(prompt);
+        this.chatMemory.add(userMessage(prompt));
         AiMessage answer = this.model.generate(chatMemory.messages()).content();
         this.chatMemory.add(answer);
-        return answer.text();
+        String response = answer.text();
+        System.out.println(response);
+        return response;
     }
 }

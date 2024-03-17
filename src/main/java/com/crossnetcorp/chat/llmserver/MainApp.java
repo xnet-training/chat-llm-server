@@ -5,6 +5,9 @@ import io.grpc.ServerBuilder;
 import java.io.IOException;
 
 public class MainApp {
+    static String COPYRIGHT_MSG = "CROSSNET SAC | Copyright (c) 2024\n" + "Todos los derechos reservados.\n"
+            + "gRPC Server started at %d";
+
     public static void main(String[] args) {
         try {
             Integer port = args.length > 0 ? Integer.parseInt(args[0]) : 8999;
@@ -13,14 +16,9 @@ public class MainApp {
             Server server = ServerBuilder.forPort(port).addService(new LlmServerImpl(apiKey)).build();
 
             server.start();
-            System.out.println(
-                    "CROSSNET SAC | Copyright (c) 2024\nTodos los derechos reservados.\ngRPC Server started at "
-                            + server.getPort());
-            System.out.println(String.format("LLM API Key: %s", apiKey));
+            System.out.println(String.format(COPYRIGHT_MSG, server.getPort()));
             server.awaitTermination();
-        } catch (IOException e) {
-            System.out.println("Error: " + e);
-        } catch (InterruptedException e) {
+        } catch (IOException | InterruptedException e) {
             System.out.println("Error: " + e);
         }
     }

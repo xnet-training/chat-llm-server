@@ -69,4 +69,8 @@ Se debe crear un archivo `.env` y colocar los siguientes parametros previo a la 
 docker compose up -d
 ```
 
+# References
+
+1. [Chat con embeding desde documentos](https://github.com/langchain4j/langchain4j-examples/blob/main/other-examples/src/main/java/ChatWithDocumentsExamples.java)
+
 > Autor: Ilver Anache <ianache@crossnetcorp.com>

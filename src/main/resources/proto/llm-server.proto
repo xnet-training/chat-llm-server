@@ -20,7 +20,8 @@ message PingResponse {
 
 message QuestionRequest {
   string role = 1;     // Cual es  mi role en la consulta
-  string question = 2; // Pregunta a responder
+  string context = 2;
+  string question = 3; // Pregunta a responder
 }
 
 message QuestionResponse {

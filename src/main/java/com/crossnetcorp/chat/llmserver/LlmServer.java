@@ -1153,11 +1153,21 @@ public final class LlmServer {
         com.google.protobuf.ByteString getRoleBytes();
 
         /**
+         * <code>string context = 2;</code>
+         */
+        java.lang.String getContext();
+
+        /**
+         * <code>string context = 2;</code>
+         */
+        com.google.protobuf.ByteString getContextBytes();
+
+        /**
          * <pre>
          * Pregunta a responder
          * </pre>
          *
-         * <code>string question = 2;</code>
+         * <code>string question = 3;</code>
          */
         java.lang.String getQuestion();
 
@@ -1166,7 +1176,7 @@ public final class LlmServer {
          * Pregunta a responder
          * </pre>
          *
-         * <code>string question = 2;</code>
+         * <code>string question = 3;</code>
          */
         com.google.protobuf.ByteString getQuestionBytes();
     }
@@ -1186,6 +1196,7 @@ public final class LlmServer {
 
         private QuestionRequest() {
             role_ = "";
+            context_ = "";
             question_ = "";
         }
 
@@ -1219,6 +1230,12 @@ public final class LlmServer {
                         break;
                     }
                     case 18: {
+                        java.lang.String s = input.readStringRequireUtf8();
+
+                        context_ = s;
+                        break;
+                    }
+                    case 26: {
                         java.lang.String s = input.readStringRequireUtf8();
 
                         question_ = s;
@@ -1293,7 +1310,39 @@ public final class LlmServer {
             }
         }
 
-        public static final int QUESTION_FIELD_NUMBER = 2;
+        public static final int CONTEXT_FIELD_NUMBER = 2;
+        private volatile java.lang.Object context_;
+
+        /**
+         * <code>string context = 2;</code>
+         */
+        public java.lang.String getContext() {
+            java.lang.Object ref = context_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                context_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <code>string context = 2;</code>
+         */
+        public com.google.protobuf.ByteString getContextBytes() {
+            java.lang.Object ref = context_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b = com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+                context_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        public static final int QUESTION_FIELD_NUMBER = 3;
         private volatile java.lang.Object question_;
 
         /**
@@ -1301,7 +1350,7 @@ public final class LlmServer {
          * Pregunta a responder
          * </pre>
          *
-         * <code>string question = 2;</code>
+         * <code>string question = 3;</code>
          */
         public java.lang.String getQuestion() {
             java.lang.Object ref = question_;
@@ -1320,7 +1369,7 @@ public final class LlmServer {
          * Pregunta a responder
          * </pre>
          *
-         * <code>string question = 2;</code>
+         * <code>string question = 3;</code>
          */
         public com.google.protobuf.ByteString getQuestionBytes() {
             java.lang.Object ref = question_;
@@ -1352,8 +1401,11 @@ public final class LlmServer {
             if (!getRoleBytes().isEmpty()) {
                 com.google.protobuf.GeneratedMessageV3.writeString(output, 1, role_);
             }
+            if (!getContextBytes().isEmpty()) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 2, context_);
+            }
             if (!getQuestionBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 2, question_);
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 3, question_);
             }
             unknownFields.writeTo(output);
         }
@@ -1368,8 +1420,11 @@ public final class LlmServer {
             if (!getRoleBytes().isEmpty()) {
                 size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, role_);
             }
+            if (!getContextBytes().isEmpty()) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, context_);
+            }
             if (!getQuestionBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, question_);
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, question_);
             }
             size += unknownFields.getSerializedSize();
             memoizedSize = size;
@@ -1388,6 +1443,7 @@ public final class LlmServer {
 
             boolean result = true;
             result = result && getRole().equals(other.getRole());
+            result = result && getContext().equals(other.getContext());
             result = result && getQuestion().equals(other.getQuestion());
             result = result && unknownFields.equals(other.unknownFields);
             return result;
@@ -1402,6 +1458,8 @@ public final class LlmServer {
             hash = (19 * hash) + getDescriptor().hashCode();
             hash = (37 * hash) + ROLE_FIELD_NUMBER;
             hash = (53 * hash) + getRole().hashCode();
+            hash = (37 * hash) + CONTEXT_FIELD_NUMBER;
+            hash = (53 * hash) + getContext().hashCode();
             hash = (37 * hash) + QUESTION_FIELD_NUMBER;
             hash = (53 * hash) + getQuestion().hashCode();
             hash = (29 * hash) + unknownFields.hashCode();
@@ -1537,6 +1595,8 @@ public final class LlmServer {
                 super.clear();
                 role_ = "";
 
+                context_ = "";
+
                 question_ = "";
 
                 return this;
@@ -1566,6 +1626,7 @@ public final class LlmServer {
                 com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest result = new com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest(
                         this);
                 result.role_ = role_;
+                result.context_ = context_;
                 result.question_ = question_;
                 onBuilt();
                 return result;
@@ -1618,6 +1679,10 @@ public final class LlmServer {
                     return this;
                 if (!other.getRole().isEmpty()) {
                     role_ = other.role_;
+                    onChanged();
+                }
+                if (!other.getContext().isEmpty()) {
+                    context_ = other.context_;
                     onChanged();
                 }
                 if (!other.getQuestion().isEmpty()) {
@@ -1741,6 +1806,75 @@ public final class LlmServer {
                 return this;
             }
 
+            private java.lang.Object context_ = "";
+
+            /**
+             * <code>string context = 2;</code>
+             */
+            public java.lang.String getContext() {
+                java.lang.Object ref = context_;
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    context_ = s;
+                    return s;
+                } else {
+                    return (java.lang.String) ref;
+                }
+            }
+
+            /**
+             * <code>string context = 2;</code>
+             */
+            public com.google.protobuf.ByteString getContextBytes() {
+                java.lang.Object ref = context_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+                            .copyFromUtf8((java.lang.String) ref);
+                    context_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string context = 2;</code>
+             */
+            public Builder setContext(java.lang.String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
+                context_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string context = 2;</code>
+             */
+            public Builder clearContext() {
+
+                context_ = getDefaultInstance().getContext();
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string context = 2;</code>
+             */
+            public Builder setContextBytes(com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+
+                context_ = value;
+                onChanged();
+                return this;
+            }
+
             private java.lang.Object question_ = "";
 
             /**
@@ -1748,7 +1882,7 @@ public final class LlmServer {
              * Pregunta a responder
              * </pre>
              *
-             * <code>string question = 2;</code>
+             * <code>string question = 3;</code>
              */
             public java.lang.String getQuestion() {
                 java.lang.Object ref = question_;
@@ -1767,7 +1901,7 @@ public final class LlmServer {
              * Pregunta a responder
              * </pre>
              *
-             * <code>string question = 2;</code>
+             * <code>string question = 3;</code>
              */
             public com.google.protobuf.ByteString getQuestionBytes() {
                 java.lang.Object ref = question_;
@@ -1786,7 +1920,7 @@ public final class LlmServer {
              * Pregunta a responder
              * </pre>
              *
-             * <code>string question = 2;</code>
+             * <code>string question = 3;</code>
              */
             public Builder setQuestion(java.lang.String value) {
                 if (value == null) {
@@ -1803,7 +1937,7 @@ public final class LlmServer {
              * Pregunta a responder
              * </pre>
              *
-             * <code>string question = 2;</code>
+             * <code>string question = 3;</code>
              */
             public Builder clearQuestion() {
 
@@ -1817,7 +1951,7 @@ public final class LlmServer {
              * Pregunta a responder
              * </pre>
              *
-             * <code>string question = 2;</code>
+             * <code>string question = 3;</code>
              */
             public Builder setQuestionBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -2473,12 +2607,12 @@ public final class LlmServer {
     static {
         java.lang.String[] descriptorData = { "\n\020llm-server.proto\"\033\n\013PingRequest\022\014\n\004nam"
                 + "e\030\001 \001(\t\" \n\014PingResponse\022\020\n\010response\030\001 \001("
-                + "\t\"1\n\017QuestionRequest\022\014\n\004role\030\001 \001(\t\022\020\n\010qu"
-                + "estion\030\002 \001(\t\"$\n\020QuestionResponse\022\020\n\010resp"
-                + "onse\030\001 \001(\t2h\n\016LLMChatService\022%\n\004ping\022\014.P"
-                + "ingRequest\032\r.PingResponse\"\000\022/\n\006answer\022\020."
-                + "QuestionRequest\032\021.QuestionResponse\"\000B!\n\037"
-                + "com.crossnetcorp.chat.llmserverb\006proto3" };
+                + "\t\"B\n\017QuestionRequest\022\014\n\004role\030\001 \001(\t\022\017\n\007co"
+                + "ntext\030\002 \001(\t\022\020\n\010question\030\003 \001(\t\"$\n\020Questio"
+                + "nResponse\022\020\n\010response\030\001 \001(\t2h\n\016LLMChatSe"
+                + "rvice\022%\n\004ping\022\014.PingRequest\032\r.PingRespon"
+                + "se\"\000\022/\n\006answer\022\020.QuestionRequest\032\021.Quest"
+                + "ionResponse\"\000B!\n\037com.crossnetcorp.chat.l" + "lmserverb\006proto3" };
         com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner = new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
             public com.google.protobuf.ExtensionRegistry assignDescriptors(
                     com.google.protobuf.Descriptors.FileDescriptor root) {
@@ -2496,7 +2630,7 @@ public final class LlmServer {
                 internal_static_PingResponse_descriptor, new java.lang.String[] { "Response", });
         internal_static_QuestionRequest_descriptor = getDescriptor().getMessageTypes().get(2);
         internal_static_QuestionRequest_fieldAccessorTable = new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_QuestionRequest_descriptor, new java.lang.String[] { "Role", "Question", });
+                internal_static_QuestionRequest_descriptor, new java.lang.String[] { "Role", "Context", "Question", });
         internal_static_QuestionResponse_descriptor = getDescriptor().getMessageTypes().get(3);
         internal_static_QuestionResponse_fieldAccessorTable = new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_QuestionResponse_descriptor, new java.lang.String[] { "Response", });

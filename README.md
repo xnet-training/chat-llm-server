@@ -57,4 +57,16 @@ docker run --rm \
   xnet/chat-llm-server:0.1.0
 ```
 
+## Ejecutar con Docker Compose
+
+Se debe crear un archivo `.env` y colocar los siguientes parametros previo a la ejecución del docker compose:
+
+|Parametro|Valoe|
+|-|-|
+|API_KEY|Valor del APIKEY obtenido de OpenAI|
+
+```sh
+docker compose up -d
+```
+
 > Autor: Ilver Anache <ianache@crossnetcorp.com>

@@ -1,0 +1,9 @@
+trl
+transformers
+accelerate
+datasets
+bitsandbytes
+einops
+torch
+huggingface-hub
+git+https://github.com/huggingface/peft.git

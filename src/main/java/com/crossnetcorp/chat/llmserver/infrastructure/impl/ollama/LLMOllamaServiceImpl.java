@@ -9,26 +9,38 @@ import dev.langchain4j.model.chat.ChatLanguageModel;
 
 import com.crossnetcorp.chat.llmserver.infrastructure.impl.ollama.model.*;
 
+import java.time.Duration;
 import java.io.IOException;
 
 import static dev.langchain4j.data.message.UserMessage.userMessage;
 
 public class LLMOllamaServiceImpl implements LLMService {
     private final OllamaClient client;
-    private static String OLLAMA_URL = "http://localhost:11434";
-
+    public static String OLLAMA_URL = "http://localhost:11434";
     private String modelName;
-    public LLMOllamaServiceImpl(String apiKey) {
-	this.client = OllamaClient.builder().baseUrl(OLLAMA_URL).build();
-	this.modelName = "gemma:2b";
+
+    public LLMOllamaServiceImpl(String model, String url, String apiKey) {
+	this.client = OllamaClient.builder()
+		.baseUrl(url)
+		.timeout(Duration.ofSeconds(600))
+		.build();
+	this.modelName = model; // "gemma:2b";
     }
 
-    static String PROMPT_TEMPLATE_ENGLISH = "As %s i need you to answer the following question to the best of your ability:\n"
-            + "\n" + "Question:\n" + "%s\n" + "\n" + "Base your answer on the following information:\n" + "%s";
+    static String PROMPT_TEMPLATE_ENGLISH = "As %s i need you to answer the following question to the best of your ability. If not enough information answer you does not know. Be very specific in your answer:\n"
+            + "Question:\n" 
+	    + "%s\n" 
+	    + "Base your answer on the following information:\n" 
+	    + "%s";
+
+    static String PROMPT_TEMPLATE_SPANISH = "Como %s necesito respuesta a la siguiente pregunta, sin ser creativo y respondiendo de forma concisa y precisa solo usando la informacion de contexto provista. Si no conocer la respuesta simplemente responder ´Lo siento, información no disponible'\n" 
+	    + "Pregunta: %s\n"
+	    + "Utilizar la siguient informacion contextual: \n %s";
 
     @Override
     public String answer(String role, String context, String question) {
-        String prompt = String.format(PROMPT_TEMPLATE_ENGLISH, role, question, context);
+        String prompt = String.format(PROMPT_TEMPLATE_SPANISH, role, question, context);
+	System.out.println(String.format("Usando modelo: %s", this.modelName));
         System.out.println(prompt);
         //this.chatMemory.add(userMessage(prompt));
         //AiMessage answer = this.model.generate(chatMemory.messages()).content();

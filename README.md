@@ -57,6 +57,18 @@ docker run --rm \
   xnet/chat-llm-server:0.1.0
 ```
 
+## Generar modelo personalizado
+
+```sh
+ollama create phi3-xnet -f Modelfile_phi3
+```
+
+Se debe iniciar el servicio con el modelo creado
+
+```sh
+ollama run phi3-xnet
+```
+
 ## Ejecutar con Docker Compose
 
 Se debe crear un archivo `.env` y colocar los siguientes parametros previo a la ejecución del docker compose:

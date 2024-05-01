@@ -23,7 +23,11 @@ import java.time.Duration;
 import static com.google.gson.FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES;
 import static java.lang.Boolean.TRUE;
 
-import com.crossnetcorp.chat.llmserver.infrastructure.impl.ollama.model.*;
+import com.crossnetcorp.chat.llmserver.infrastructure.impl.ollama.model.CompletionRequest;
+import com.crossnetcorp.chat.llmserver.infrastructure.impl.ollama.model.CompletionResponse;
+import com.crossnetcorp.chat.llmserver.infrastructure.impl.ollama.model.ChatRequest;
+import com.crossnetcorp.chat.llmserver.infrastructure.impl.ollama.model.ChatResponse;
+
 
 public class OllamaClient {
     private static final Gson GSON = new GsonBuilder()

@@ -5,5 +5,8 @@ services:
     image:  xnet/chat-llm-server:${SERVER_VERSION:-0.1.0}
     ports:
     - "8999:8999"
+    environment:
+      OLLAMA_URL: "http://172.17.8.220:11434"
+      MODEL_ID: "phi3-xnet" #"phi3"
     env_file:
     - .env

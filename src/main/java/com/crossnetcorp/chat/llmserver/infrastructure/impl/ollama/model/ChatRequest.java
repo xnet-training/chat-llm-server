@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-class ChatRequest {
+public class ChatRequest {
 
     private String model;
     private List<Message> messages;

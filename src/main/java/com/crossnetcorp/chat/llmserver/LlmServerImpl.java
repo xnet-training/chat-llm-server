@@ -9,6 +9,7 @@ import com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse;
 
 import com.crossnetcorp.chat.llmserver.infrastructure.LLMService;
 import com.crossnetcorp.chat.llmserver.infrastructure.impl.LLMServiceImpl;
+import com.crossnetcorp.chat.llmserver.infrastructure.impl.ollama.LLMOllamaServiceImpl;
 
 public class LlmServerImpl extends LLMChatServiceGrpc.LLMChatServiceImplBase {
     private LLMService llmService = null;
@@ -16,7 +17,7 @@ public class LlmServerImpl extends LLMChatServiceGrpc.LLMChatServiceImplBase {
 
     public LlmServerImpl(String apiKey) {
         this.apiKey = apiKey;
-        this.llmService = new LLMServiceImpl(apiKey);
+        this.llmService = new LLMOllamaServiceImpl(); //new LLMServiceImpl(apiKey);
     }
 
     @Override

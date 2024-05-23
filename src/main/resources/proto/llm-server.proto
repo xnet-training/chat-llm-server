@@ -7,6 +7,8 @@ service LLMChatService {
   rpc ping (PingRequest) returns (PingResponse) {}
   // Responder a pregunta usando LLM
   rpc answer (QuestionRequest) returns (QuestionResponse) {}
+  // Responder a pregunta usando Streaming
+  rpc asyncAnswer (QuestionRequest) returns (AsyncQuestionResponse) {}
 }
 
 message PingRequest {
@@ -25,5 +27,9 @@ message QuestionRequest {
 }
 
 message QuestionResponse {
+  string response = 1; // Respuesta LLM
+}
+
+message AsyncQuestionResponse {
   string response = 1; // Respuesta LLM
 }

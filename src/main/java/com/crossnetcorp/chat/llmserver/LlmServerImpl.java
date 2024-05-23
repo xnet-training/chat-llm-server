@@ -41,4 +41,15 @@ public class LlmServerImpl extends LLMChatServiceGrpc.LLMChatServiceImplBase {
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
+
+    @Override
+    public void asyncAnswer(QuestionRequest request, io.grpc.stub.StreamObserver<AsyncQuestionResponse> responseObserver) {
+	
+	this.llmService.asyncAnswer(request.getRole(), 
+	   request.getContext(), request.getQuestion(), (answer)->{
+		QuestionResponse response = QuestionResponse.newBuilder().setResponse(answer);
+		responseObserver.onNext(response);
+	});
+	responseObserver.onCompleted();
+    }
 }

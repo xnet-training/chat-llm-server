@@ -14,10 +14,10 @@ public class MainApp {
         try {
             Integer port = args.length > 0 ? Integer.parseInt(args[0]) : 8999;
             String apiKey = args.length > 1 ? args[1] : System.getenv("API_KEY");
-	    String url = args.length > 2 ? args[2] : System.getenv("OLLAMA_URL");
-	    String model = args.length > 3 ? args[3] : System.getenv("MODEL_ID"); 
+            String url = args.length > 2 ? args[2] : System.getenv("OLLAMA_URL");
+            String model = args.length > 3 ? args[3] : System.getenv("MODEL_ID");
 
-	    model = (model == null || (model != null && "".equals(model.trim()))) ? DEFAULT_MODEL_ID : model;
+            model = (model == null || (model != null && "".equals(model.trim()))) ? DEFAULT_MODEL_ID : model;
 
             Server server = ServerBuilder.forPort(port).addService(new LlmServerImpl(model, url, apiKey)).build();
 

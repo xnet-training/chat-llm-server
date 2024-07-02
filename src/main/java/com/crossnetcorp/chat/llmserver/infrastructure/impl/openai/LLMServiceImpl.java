@@ -1,4 +1,4 @@
-package com.crossnetcorp.chat.llmserver.infrastructure.impl;
+package com.crossnetcorp.chat.llmserver.infrastructure.impl.openai;
 
 import com.crossnetcorp.chat.llmserver.infrastructure.LLMService;
 import dev.langchain4j.chain.ConversationalChain;
@@ -25,9 +25,14 @@ public class LLMServiceImpl implements LLMService {
     static String PROMPT_TEMPLATE_ENGLISH = "As %s i need you to answer the following question to the best of your ability:\n"
             + "\n" + "Question:\n" + "%s\n" + "\n" + "Base your answer on the following information:\n" + "%s";
 
+    static String PROMPT_TEMPLTE_SPANISH = "Eres un asistente %s eficiente que debe dar una respuesta clara y precis"
+            + "a la siguiente pregunta solo utilizando la información del contexto.\n" + "Pregunta: %s \n"
+            + "Contexto: %s\n\n"
+            + "Solo utilizar la información de contexto provista. Si no conoces la respuesta responder 'No tengo información suficiente en el contexto'";
+
     @Override
     public String answer(String role, String context, String question) {
-        String prompt = String.format(PROMPT_TEMPLATE_ENGLISH, role, question, context);
+        String prompt = String.format(PROMPT_TEMPLTE_SPANISH, role, question, context);
         System.out.println(prompt);
         this.chatMemory.add(userMessage(prompt));
         AiMessage answer = this.model.generate(chatMemory.messages()).content();

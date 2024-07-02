@@ -39,7 +39,7 @@ export PATH
 
 ```sh
 mvn clean package
-java -jar target/chat-server-1.0.0.jar
+java -jar target/chat-server-1.0.0.jar 8999 NA http://172.17.8.220:11434 phi3
 ```
 
 ## Ejecutar usando Docker

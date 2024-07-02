@@ -74,6 +74,31 @@ public final class LLMChatServiceGrpc {
         return getAnswerMethod;
     }
 
+    private static volatile io.grpc.MethodDescriptor<com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest, com.crossnetcorp.chat.llmserver.LlmServer.AsyncQuestionResponse> getAsyncAnswerMethod;
+
+    @io.grpc.stub.annotations.RpcMethod(fullMethodName = SERVICE_NAME + '/'
+            + "asyncAnswer", requestType = com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest.class, responseType = com.crossnetcorp.chat.llmserver.LlmServer.AsyncQuestionResponse.class, methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+    public static io.grpc.MethodDescriptor<com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest, com.crossnetcorp.chat.llmserver.LlmServer.AsyncQuestionResponse> getAsyncAnswerMethod() {
+        io.grpc.MethodDescriptor<com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest, com.crossnetcorp.chat.llmserver.LlmServer.AsyncQuestionResponse> getAsyncAnswerMethod;
+        if ((getAsyncAnswerMethod = LLMChatServiceGrpc.getAsyncAnswerMethod) == null) {
+            synchronized (LLMChatServiceGrpc.class) {
+                if ((getAsyncAnswerMethod = LLMChatServiceGrpc.getAsyncAnswerMethod) == null) {
+                    LLMChatServiceGrpc.getAsyncAnswerMethod = getAsyncAnswerMethod = io.grpc.MethodDescriptor.<com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest, com.crossnetcorp.chat.llmserver.LlmServer.AsyncQuestionResponse> newBuilder()
+                            .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+                            .setFullMethodName(generateFullMethodName("LLMChatService", "asyncAnswer"))
+                            .setSampledToLocalTracing(true)
+                            .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                                    com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest.getDefaultInstance()))
+                            .setResponseMarshaller(io.grpc.protobuf.ProtoUtils
+                                    .marshaller(com.crossnetcorp.chat.llmserver.LlmServer.AsyncQuestionResponse
+                                            .getDefaultInstance()))
+                            .setSchemaDescriptor(new LLMChatServiceMethodDescriptorSupplier("asyncAnswer")).build();
+                }
+            }
+        }
+        return getAsyncAnswerMethod;
+    }
+
     /**
      * Creates a new async stub that supports all call types for the service
      */
@@ -119,6 +144,16 @@ public final class LLMChatServiceGrpc {
             asyncUnimplementedUnaryCall(getAnswerMethod(), responseObserver);
         }
 
+        /**
+         * <pre>
+         * Responder a pregunta usando Streaming
+         * </pre>
+         */
+        public void asyncAnswer(com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest request,
+                io.grpc.stub.StreamObserver<com.crossnetcorp.chat.llmserver.LlmServer.AsyncQuestionResponse> responseObserver) {
+            asyncUnimplementedUnaryCall(getAsyncAnswerMethod(), responseObserver);
+        }
+
         @java.lang.Override
         public final io.grpc.ServerServiceDefinition bindService() {
             return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
@@ -128,6 +163,9 @@ public final class LLMChatServiceGrpc {
                     .addMethod(getAnswerMethod(), asyncUnaryCall(
                             new MethodHandlers<com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest, com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse>(
                                     this, METHODID_ANSWER)))
+                    .addMethod(getAsyncAnswerMethod(), asyncUnaryCall(
+                            new MethodHandlers<com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest, com.crossnetcorp.chat.llmserver.LlmServer.AsyncQuestionResponse>(
+                                    this, METHODID_ASYNC_ANSWER)))
                     .build();
         }
     }
@@ -167,6 +205,16 @@ public final class LLMChatServiceGrpc {
                 io.grpc.stub.StreamObserver<com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse> responseObserver) {
             asyncUnaryCall(getChannel().newCall(getAnswerMethod(), getCallOptions()), request, responseObserver);
         }
+
+        /**
+         * <pre>
+         * Responder a pregunta usando Streaming
+         * </pre>
+         */
+        public void asyncAnswer(com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest request,
+                io.grpc.stub.StreamObserver<com.crossnetcorp.chat.llmserver.LlmServer.AsyncQuestionResponse> responseObserver) {
+            asyncUnaryCall(getChannel().newCall(getAsyncAnswerMethod(), getCallOptions()), request, responseObserver);
+        }
     }
 
     /**
@@ -203,6 +251,16 @@ public final class LLMChatServiceGrpc {
         public com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse answer(
                 com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest request) {
             return blockingUnaryCall(getChannel(), getAnswerMethod(), getCallOptions(), request);
+        }
+
+        /**
+         * <pre>
+         * Responder a pregunta usando Streaming
+         * </pre>
+         */
+        public com.crossnetcorp.chat.llmserver.LlmServer.AsyncQuestionResponse asyncAnswer(
+                com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest request) {
+            return blockingUnaryCall(getChannel(), getAsyncAnswerMethod(), getCallOptions(), request);
         }
     }
 
@@ -241,10 +299,21 @@ public final class LLMChatServiceGrpc {
                 com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest request) {
             return futureUnaryCall(getChannel().newCall(getAnswerMethod(), getCallOptions()), request);
         }
+
+        /**
+         * <pre>
+         * Responder a pregunta usando Streaming
+         * </pre>
+         */
+        public com.google.common.util.concurrent.ListenableFuture<com.crossnetcorp.chat.llmserver.LlmServer.AsyncQuestionResponse> asyncAnswer(
+                com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest request) {
+            return futureUnaryCall(getChannel().newCall(getAsyncAnswerMethod(), getCallOptions()), request);
+        }
     }
 
     private static final int METHODID_PING = 0;
     private static final int METHODID_ANSWER = 1;
+    private static final int METHODID_ASYNC_ANSWER = 2;
 
     private static final class MethodHandlers<Req, Resp> implements io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
             io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
@@ -269,6 +338,10 @@ public final class LLMChatServiceGrpc {
             case METHODID_ANSWER:
                 serviceImpl.answer((com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest) request,
                         (io.grpc.stub.StreamObserver<com.crossnetcorp.chat.llmserver.LlmServer.QuestionResponse>) responseObserver);
+                break;
+            case METHODID_ASYNC_ANSWER:
+                serviceImpl.asyncAnswer((com.crossnetcorp.chat.llmserver.LlmServer.QuestionRequest) request,
+                        (io.grpc.stub.StreamObserver<com.crossnetcorp.chat.llmserver.LlmServer.AsyncQuestionResponse>) responseObserver);
                 break;
             default:
                 throw new AssertionError();
@@ -330,7 +403,7 @@ public final class LLMChatServiceGrpc {
                 if (result == null) {
                     serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
                             .setSchemaDescriptor(new LLMChatServiceFileDescriptorSupplier()).addMethod(getPingMethod())
-                            .addMethod(getAnswerMethod()).build();
+                            .addMethod(getAnswerMethod()).addMethod(getAsyncAnswerMethod()).build();
                 }
             }
         }

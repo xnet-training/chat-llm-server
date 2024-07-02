@@ -28,36 +28,25 @@ import com.crossnetcorp.chat.llmserver.infrastructure.impl.ollama.model.Completi
 import com.crossnetcorp.chat.llmserver.infrastructure.impl.ollama.model.ChatRequest;
 import com.crossnetcorp.chat.llmserver.infrastructure.impl.ollama.model.ChatResponse;
 
-
 public class OllamaClient {
-    private static final Gson GSON = new GsonBuilder()
-            .setFieldNamingPolicy(LOWER_CASE_WITH_UNDERSCORES)
-            .create();
+    private static final Gson GSON = new GsonBuilder().setFieldNamingPolicy(LOWER_CASE_WITH_UNDERSCORES).create();
 
     private final OllamaApi ollamaApi;
 
     @Builder
     public OllamaClient(String baseUrl, Duration timeout) {
-	OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .callTimeout(timeout)
-                .connectTimeout(timeout)
-                .readTimeout(timeout)
-                .writeTimeout(timeout)
-                .build();
+        OkHttpClient okHttpClient = new OkHttpClient.Builder().callTimeout(timeout).connectTimeout(timeout)
+                .readTimeout(timeout).writeTimeout(timeout).build();
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .client(okHttpClient)
-                .addConverterFactory(GsonConverterFactory.create(GSON))
-                .build();
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(baseUrl).client(okHttpClient)
+                .addConverterFactory(GsonConverterFactory.create(GSON)).build();
 
         ollamaApi = retrofit.create(OllamaApi.class);
     }
 
     public CompletionResponse completion(CompletionRequest request) {
         try {
-            retrofit2.Response<CompletionResponse> retrofitResponse
-                    = ollamaApi.completion(request).execute();
+            retrofit2.Response<CompletionResponse> retrofitResponse = ollamaApi.completion(request).execute();
 
             if (retrofitResponse.isSuccessful()) {
                 return retrofitResponse.body();
@@ -71,8 +60,7 @@ public class OllamaClient {
 
     public ChatResponse chat(ChatRequest request) {
         try {
-            retrofit2.Response<ChatResponse> retrofitResponse
-                    = ollamaApi.chat(request).execute();
+            retrofit2.Response<ChatResponse> retrofitResponse = ollamaApi.chat(request).execute();
 
             if (retrofitResponse.isSuccessful()) {
                 return retrofitResponse.body();
